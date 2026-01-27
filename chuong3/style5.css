@@ -25,11 +25,14 @@ h3 {
    left: 30px;
   position: absolute;
 }
-.cometim{
+.table{
        width: 1488px; 
-    border: 2px solid black;
+    border: 3px solid black;
     padding: 0px;
 }
+.cometim{ width: 1488px; 
+    border: 1px solid black;
+    padding: 0px;}
 .nam1{
     color: black;
     font-size: 13pt;
@@ -72,4 +75,5 @@ h2{
   font-size: 13pt;
   font-style: verdana;
   padding: 10px;
+
 }
