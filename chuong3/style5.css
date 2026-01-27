@@ -69,6 +69,8 @@ pas.e{
   white-space: nowrap;
 }
 h2{
+  text-decoration-line: underline;
+  text-decoration-style: solid;
   font-style: italic;
   font-weight: bold;
   color: black;
@@ -77,4 +79,5 @@ h2{
 
 
 }
+
 
