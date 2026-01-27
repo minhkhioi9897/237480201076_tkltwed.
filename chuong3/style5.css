@@ -1,0 +1,75 @@
+h1 {
+    color: blue;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+}
+h3 {
+   font-family: Arial;
+   font-size: 13pt;
+   background-color: #cccccc;
+   font-weight: bold;
+   margin-top: 0;
+}
+.ex2 {
+   font-family: Arial;
+   font-size: 13pt;
+   left: 50px;
+  position: absolute;
+   
+}
+.ex3 {
+   font-family: Arial;
+   font-size: 13pt;
+   font-weight: bold;
+   left: 30px;
+  position: absolute;
+}
+.cometim{
+       width: 1488px; 
+    border: 2px solid black;
+    padding: 0px;
+}
+.nam1{
+    color: black;
+    font-size: 13pt;
+    font-style: verdana;
+    padding: 10px;
+}
+.nam2{
+    color: black;
+    font-size: 13pt;
+    font-style: tahoma;
+    padding: 10px;
+}
+.nam3{
+    color: black;
+    font-size: 13pt;
+    font-style: time new roman;
+    padding: 10px;
+}
+.dam{
+  font-weight: bold;
+}
+ul.a {list-style-type: circle;}
+ul.c {list-style-type: disc;}
+ul.b {list-style-type: square;}
+ul.d { color: black;
+    font-size: 13pt;
+    font-style: verdana;
+    list-style-type: disc;
+    padding-left: 30px;
+    font-weight: bold;
+  }
+pas.e{ 
+  font-weight: normal;
+  white-space: nowrap;
+}
+h2{
+  font-style: italic;
+  font-weight: bold;
+  color: black;
+  font-size: 13pt;
+  font-style: verdana;
+  padding: 10px;
+}

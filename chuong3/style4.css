@@ -1,36 +1,29 @@
-/* Thiết lập chung cho toàn bộ trang */
+
 body {
     font-family: "Times New Roman", Times, serif;
-    font-size: 14pt; /* Cỡ chữ 14 */
-    font-weight: bold; /* In đậm toàn bộ văn bản */
+    font-size: 14pt;
+    font-weight: bold; 
     padding: 20px;
 }
 
-/* Định dạng bảng */
 table {
-    border-collapse: collapse; /* Gộp viền bảng */
+    border-collapse: collapse; 
     width: 100%;
     max-width: 800px;
     text-align: center;
 }
-
-/* Định dạng các ô */
 th, td {
-    border: 1px solid black; /* Viền đen 1px */
-    padding: 10px;
+    border: 3px solid black;
+    padding: 20px;
 }
 
-/* Màu nền cho hàng tiêu đề đầu tiên (Thứ/Buổi...) */
 thead th {
-    background-color: #ffffff; /* Màu trắng hoặc để mặc định */
+    background-color: #c2e1f1d2; 
 }
-
-/* Màu nền cho cột bên trái (Sáng/Chiều) và tiêu đề nếu cần giống mẫu */
 th, .sidebar {
-    background-color: #d3d3d3; /* Màu xám nhạt */
-}
+    background-color: #d3d3d3; 
 
-/* Đảm bảo các ô nội dung môn học có nền trắng */
+
 tbody td:not(.sidebar) {
     background-color: #ffffff;
 }
