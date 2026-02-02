@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 3.8 - Menu Đa Cấp</title>
+    <link rel="stylesheet" href="style8.css">
+    <style>
+        .arrow-down::after { content: " ▼"; font-size: 10px; }
+        .arrow-right::after { content: " ►"; font-size: 10px; float: right; margin-right: 5px;}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul class="main-menu">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Giới thiệu</a></li>
+            
+            <li>
+                <a href="#" class="arrow-down">Khóa học</a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="#" class="arrow-right">Tin học căn bản</a>
+                        <ul class="sub-menu-2">
+                            <li><a href="#">Microsoft Word 2010</a></li>
+                            <li><a href="#">Microsoft Excel 2010</a></li>
+                            <li><a href="#">Microsoft Powerpoint 2010</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Tin học phổ thông</a></li>
+                    <li><a href="#">Lập trình Pascal</a></li>
+                    <li><a href="#">Lập trình C</a></li>
+                    <li><a href="#">Thiết kế website</a></li>
+                    <li><a href="#">Vẽ kỹ thuật AutoCAD</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Bài viết</a></li>
+            <li><a href="#">Thủ thuật</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>
