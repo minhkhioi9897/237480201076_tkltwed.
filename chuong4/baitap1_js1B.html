@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bài tập JavaScript 1A</title>
+</head>
+<body>
+    <script language="JavaScript">
+        // Khai báo 2 biến để lưu thông tin
+        var Lop, Ten; 
+
+        // Nhập dữ liệu từ người dùng
+        Lop = prompt("Bạn lớp nào:", "");
+        Ten = prompt("Bạn tên gì:", "");
+
+        // Dòng 1: Thẻ H1, màu đỏ
+        document.write("<h1 style='color: red;'>TRƯỜNG ĐẠI HỌC BẠC LIÊU</h1>");
+
+        // Dòng 2: Thẻ H2, màu xanh dương
+        document.write("<h2 style='color: blue;'>KHOA CÔNG NGHỆ THÔNG TIN</h2>");
+
+        // Dòng 3: Font 14, màu đen, in đậm cho phần nhãn và dữ liệu
+        document.write("<div style='font-size: 14pt; color: black;'>");
+        document.write("<b>Lớp học: <b>" + Lop + "</b></b>");
+        document.write("</div>");
+
+        // Dòng 4: Font 14, màu xanh lá cho phần nhãn và dữ liệu
+        document.write("<div style='font-size: 14pt; color: green;'>");
+        document.write("<b>Họ tên sinh viên: <b>" + Ten + "</b></b>");
+        document.write("</div>");
+    </script>
+</body>
+</html>

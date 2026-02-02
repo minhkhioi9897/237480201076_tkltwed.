@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bài tập JavaScript 2B</title>
+</head>
+<body>
+    <script language="JavaScript">
+        // Hàm này sẽ tìm đến ô textbox có tên là 'txtthongbao' 
+        // và thay đổi giá trị (value) của nó thành dòng chữ yêu cầu
+        function hienThiHello() {
+            document.frmMain.txtthongbao.value = "Hello JavaScript";
+        }
+    </script>
+
+    <form name="frmMain">
+        <input type="button" name="Hello" value="Hello" onclick="hienThiHello()">
+        
+        <br><br>
+        
+        <input type="text" name="txtthongbao" size="30">
+    </form>
+</body>
+</html>
