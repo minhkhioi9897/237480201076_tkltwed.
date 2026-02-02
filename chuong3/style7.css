@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style the topnav */
+ul.topnav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333333;
+}
+
+/* Style links in topnav */
+ul.topnav li a {
+  display: block;
+  color: #f1f1f1;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.cometim{
+       width: 800px; 
+    border: 2px solid black;
+    padding: 0px;
+}
+/* Change color on hover */
+ul.topnav li a:hover {
+  background-color: #dddddd;
+  color: black;
+}
+
+div.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+div.flex-container > div:first-child {
+  width: 200px; /* Ní tăng số này lên khoảng 180px hoặc 200px */
+  margin-right: 0; /* Giảm bớt margin để nhường chỗ cho nội dung */
+}
+
+/* Use media query and show the flex items vertically if screen width is less than 600px */
+@media screen and (max-width:400px) {
+  div.flex-container {
+    flex-direction: column;
+  }
+}
+.doan1 {    background-color: rgb(0, 234, 255);
+    color: red; 
+    font-family: Arial, sans-serif;
+    padding: 14px;
+    margin: 0;
+    text-decoration: underline;
+}
+.doan2 {
+    background-color: blue;
+    color: white;
+    font-size: 14pt;
+    padding: 10px;
+}

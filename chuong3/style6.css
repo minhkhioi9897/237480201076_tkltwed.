@@ -1,0 +1,40 @@
+h1 {
+    color: blue;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+}
+.cometim{
+       width: 800px; 
+    border: 2px solid black;
+    padding: 0px;
+}
+.nam1{
+    color: black;
+    font-size: 13pt;
+    font-style: verdana;
+    padding: 10px;
+}
+.nam2{
+    color: black;
+    font-size: 13pt;
+    font-style: tahoma;
+    padding: 10px;
+}
+.nam3{
+    color: black;
+    font-size: 13pt;
+    font-style: time new roman;
+    padding: 10px;
+}
+.dam{
+  font-weight: bold;
+}
+ul.c {
+    list-style-type: disc;
+    font-style: italic;}
+ul.b {list-style-type: square;}
+pas.e{ 
+  font-weight: normal;
+  white-space: nowrap;
+}
