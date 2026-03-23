@@ -3,7 +3,7 @@ CREATE TABLE `nhasanxuat` (
   `tennsx` varchar(40) DEFAULT NULL,
   `quocgia` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`mansx`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) 
 
 CREATE TABLE `khachhang` (
   `makh` varchar(4) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE `khachhang` (
   `dienthoai` varchar(10) DEFAULT NULL,
   `diachi` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`makh`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) 
 
 CREATE TABLE `hanghoa` (
   `mahang` varchar(4) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE `hanghoa` (
   `gia` int(11) DEFAULT NULL,
   PRIMARY KEY (`mahang`),
   CONSTRAINT `fk_hanghoa_nsx` FOREIGN KEY (`mansx`) REFERENCES `nhasanxuat` (`mansx`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) 
 
 CREATE TABLE `hoadon` (
   `mahd` varchar(3) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE `hoadon` (
   PRIMARY KEY (`mahd`, `mahang`),
   CONSTRAINT `fk_hoadon_kh` FOREIGN KEY (`makh`) REFERENCES `khachhang` (`makh`),
   CONSTRAINT `fk_hoadon_hang` FOREIGN KEY (`mahang`) REFERENCES `hanghoa` (`mahang`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+)
 
 CREATE TABLE `tonkho` (
   `mahang` varchar(4) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `tonkho` (
   `soluong` int(11) DEFAULT NULL,
   PRIMARY KEY (`mahang`),
   CONSTRAINT `fk_tonkho_nsx` FOREIGN KEY (`mansx`) REFERENCES `nhasanxuat` (`mansx`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) 
 -- Dữ liệu Nhà sản xuất
 INSERT INTO `nhasanxuat` VALUES ('AS', 'ASUS', 'Đài Loan');
 INSERT INTO `nhasanxuat` VALUES ('DE', 'DELL', 'Hoa Kỳ');
