@@ -1,66 +1,39 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-CREATE DATABASE IF NOT EXISTS `quanlybanhang` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `quanlybanhang`;
-
-CREATE TABLE `hanghoa` (
-  `mahang` varchar(4) NOT NULL,
-  `tenhang` varchar(40) DEFAULT NULL,
-  `mansx` varchar(2) DEFAULT NULL,
-  `namsx` int(11) DEFAULT NULL,
-  `gia` int(11) DEFAULT NULL
+CREATE TABLE `nhasanxuat` (
+  `mansx` varchar(2) NOT NULL,
+  `tennsx` varchar(40) DEFAULT NULL,
+  `quocgia` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`mansx`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-INSERT INTO `hanghoa` (`mahang`, `tenhang`, `mansx`, `namsx`, `gia`) VALUES
-('AS01', 'Asus TUF', 'AS', 2017, 520),
-('AS02', 'Asus Vivobook', 'AS', 2017, 580),
-('DE01', 'Dell Vostro', 'DE', 2015, 650),
-('DE02', 'Dell Inspiron', 'DE', 2015, 550),
-('LE01', 'Lenovo Thinkpad', 'LE', 2019, 750),
-('LE02', 'Lenovo Legion', 'LE', 2020, 540),
-('LE03', 'Lenovo Yoga', 'LE', 2020, 600),
-('TO01', 'Toshiba Satellite', 'TO', 2014, 630);
-
-CREATE TABLE `hoadon` (
-  `mahd` varchar(3) NOT NULL,
-  `makh` varchar(4) DEFAULT NULL,
-  `mahang` varchar(4) NOT NULL,
-  `soluong` int(11) DEFAULT NULL,
-  `thanhtien` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-INSERT INTO `hoadon` (`mahd`, `makh`, `mahang`, `soluong`, `thanhtien`) VALUES
-('001', 'K01', 'DE01', 2, 1300),
-('001', 'K01', 'DE02', 1, 550),
-('002', 'K02', 'LE01', 5, 3750),
-('002', 'K02', 'LE02', 3, 1620),
-('003', 'K02', 'TO01', 1, 630);
 
 CREATE TABLE `khachhang` (
   `makh` varchar(4) NOT NULL,
   `tenkh` varchar(30) DEFAULT NULL,
   `namsinh` int(11) DEFAULT NULL,
   `dienthoai` varchar(10) DEFAULT NULL,
-  `diachi` varchar(50) DEFAULT NULL
+  `diachi` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`makh`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `khachhang` (`makh`, `tenkh`, `namsinh`, `dienthoai`, `diachi`) VALUES
-('K01', 'Nguyễn Thị Lan', 1980, '0913123456', 'Bạc Liêu'),
-('K02', 'Ngô Thanh Minh', 1985, '0913024357', 'Vĩnh Lợi'),
-('K03', 'Lâm Văn Thanh', 1979, '0913123457', 'Giá Rai'),
-('K04', 'Dương Thu Thủy', 1995, '0913024358', 'Hồng Dân');
-
-CREATE TABLE `nhasanxuat` (
-  `mansx` varchar(2) NOT NULL,
-  `tennsx` varchar(40) DEFAULT NULL,
-  `quocgia` varchar(20) DEFAULT NULL
+CREATE TABLE `hanghoa` (
+  `mahang` varchar(4) NOT NULL,
+  `tenhang` varchar(40) DEFAULT NULL,
+  `mansx` varchar(2) DEFAULT NULL,
+  `namsx` int(11) DEFAULT NULL,
+  `gia` int(11) DEFAULT NULL,
+  PRIMARY KEY (`mahang`),
+  CONSTRAINT `fk_hanghoa_nsx` FOREIGN KEY (`mansx`) REFERENCES `nhasanxuat` (`mansx`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `nhasanxuat` (`mansx`, `tennsx`, `quocgia`) VALUES
-('AS', 'ASUS', 'Đài Loan'),
-('DE', 'DELL', 'Hoa Kỳ'),
-('LE', 'LENOVO', 'Trung Quốc'),
-('TO', 'TOSHIBA', 'Nhật Bản');
+CREATE TABLE `hoadon` (
+  `mahd` varchar(3) NOT NULL,
+  `makh` varchar(4) DEFAULT NULL,
+  `mahang` varchar(4) NOT NULL,
+  `soluong` int(11) DEFAULT NULL,
+  `thanhtien` int(11) DEFAULT NULL,
+  PRIMARY KEY (`mahd`, `mahang`),
+  CONSTRAINT `fk_hoadon_kh` FOREIGN KEY (`makh`) REFERENCES `khachhang` (`makh`),
+  CONSTRAINT `fk_hoadon_hang` FOREIGN KEY (`mahang`) REFERENCES `hanghoa` (`mahang`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `tonkho` (
   `mahang` varchar(4) NOT NULL,
@@ -68,40 +41,39 @@ CREATE TABLE `tonkho` (
   `mansx` varchar(2) DEFAULT NULL,
   `namsx` int(11) DEFAULT NULL,
   `gia` int(11) DEFAULT NULL,
-  `soluong` int(11) DEFAULT NULL
+  `soluong` int(11) DEFAULT NULL,
+  PRIMARY KEY (`mahang`),
+  CONSTRAINT `fk_tonkho_nsx` FOREIGN KEY (`mansx`) REFERENCES `nhasanxuat` (`mansx`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+-- Dữ liệu Nhà sản xuất
+INSERT INTO `nhasanxuat` VALUES ('AS', 'ASUS', 'Đài Loan');
+INSERT INTO `nhasanxuat` VALUES ('DE', 'DELL', 'Hoa Kỳ');
+INSERT INTO `nhasanxuat` VALUES ('LE', 'LENOVO', 'Trung Quốc');
+INSERT INTO `nhasanxuat` VALUES ('TO', 'TOSHIBA', 'Nhật Bản');
 
-INSERT INTO `tonkho` (`mahang`, `tenhang`, `mansx`, `namsx`, `gia`, `soluong`) VALUES
-('DE01', 'Dell Vostro', 'DE', 2015, 650, 20),
-('DE02', 'Del Inspiron', 'DE', 2015, 550, 30);
+-- Dữ liệu Khách hàng
+INSERT INTO `khachhang` VALUES ('K01', 'Nguyễn Thị Lan', 1980, '0913123456', 'Bạc Liêu');
+INSERT INTO `khachhang` VALUES ('K02', 'Ngô Thanh Minh', 1985, '0913024357', 'Vĩnh Lợi');
+INSERT INTO `khachhang` VALUES ('K03', 'Lâm Văn Thanh', 1979, '0913123457', 'Giá Rai');
+INSERT INTO `khachhang` VALUES ('K04', 'Dương Thu Thủy', 1995, '0913024358', 'Hồng Dân');
 
+-- Dữ liệu Hàng hóa
+INSERT INTO `hanghoa` VALUES ('AS01', 'Asus TUF', 'AS', 2017, 520);
+INSERT INTO `hanghoa` VALUES ('AS02', 'Asus Vivobook', 'AS', 2017, 580);
+INSERT INTO `hanghoa` VALUES ('DE01', 'Dell Vostro', 'DE', 2015, 650);
+INSERT INTO `hanghoa` VALUES ('DE02', 'Dell Inspiron', 'DE', 2015, 550);
+INSERT INTO `hanghoa` VALUES ('LE01', 'Lenovo Thinkpad', 'LE', 2019, 750);
+INSERT INTO `hanghoa` VALUES ('LE02', 'Lenovo Legion', 'LE', 2020, 540);
+INSERT INTO `hanghoa` VALUES ('LE03', 'Lenovo Yoga', 'LE', 2020, 600);
+INSERT INTO `hanghoa` VALUES ('TO01', 'Toshiba Satellite', 'TO', 2014, 630);
 
-ALTER TABLE `hanghoa`
-  ADD PRIMARY KEY (`mahang`),
-  ADD KEY `mansx` (`mansx`);
+-- Dữ liệu Hóa đơn
+INSERT INTO `hoadon` VALUES ('001', 'K01', 'DE01', 2, 1300);
+INSERT INTO `hoadon` VALUES ('001', 'K01', 'DE02', 1, 550);
+INSERT INTO `hoadon` VALUES ('002', 'K02', 'LE01', 5, 3750);
+INSERT INTO `hoadon` VALUES ('002', 'K02', 'LE02', 3, 1620);
+INSERT INTO `hoadon` VALUES ('003', 'K02', 'TO01', 1, 630);
 
-ALTER TABLE `hoadon`
-  ADD PRIMARY KEY (`mahd`,`mahang`),
-  ADD KEY `makh` (`makh`),
-  ADD KEY `mahang` (`mahang`);
-
-ALTER TABLE `khachhang`
-  ADD PRIMARY KEY (`makh`);
-
-ALTER TABLE `nhasanxuat`
-  ADD PRIMARY KEY (`mansx`);
-
-ALTER TABLE `tonkho`
-  ADD PRIMARY KEY (`mahang`),
-  ADD KEY `mansx` (`mansx`);
-
-
-ALTER TABLE `hanghoa`
-  ADD CONSTRAINT `hanghoa_ibfk_1` FOREIGN KEY (`mansx`) REFERENCES `nhasanxuat` (`mansx`);
-
-ALTER TABLE `hoadon`
-  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`makh`) REFERENCES `khachhang` (`makh`),
-  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`mahang`) REFERENCES `hanghoa` (`mahang`);
-
-ALTER TABLE `tonkho`
-  ADD CONSTRAINT `tonkho_ibfk_1` FOREIGN KEY (`mansx`) REFERENCES `nhasanxuat` (`mansx`);
+-- Dữ liệu Tồn kho
+INSERT INTO `tonkho` VALUES ('DE01', 'Dell Vostro', 'DE', 2015, 650, 20);
+INSERT INTO `tonkho` VALUES ('DE02', 'Del Inspiron', 'DE', 2015, 550, 30);
