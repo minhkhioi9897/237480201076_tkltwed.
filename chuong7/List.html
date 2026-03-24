@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chọn dữ liệu để liệt kê</title>
+</head>
+<body>
+    <h1>Chọn dữ liệu để liệt kê</h1>
+    <form method="post" action="List.php">
+        <label for="table">Bảng:</label>
+        <select id="table" name="table" required>
+            <option value="">--Chọn bảng--</option>
+            <option value="khachhang">Khách hàng</option>
+            <option value="hang">Hàng hóa</option>
+            <option value="hoadon">Hóa đơn</option>
+        </select>
+        <button type="submit">Liệt kê</button>
+    </form>
+</body>
+</html>
